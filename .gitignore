@@ -2,6 +2,7 @@
 
 # dependencies
 interface/node_modules
+node-ws-server/node_modules
 /.pnp
 .pnp.js
 

