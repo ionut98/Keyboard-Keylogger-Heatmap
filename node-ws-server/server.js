@@ -52,7 +52,12 @@ const startWSServer = () => {
         console.log(`${timestamp}: Keypressed: ${keyPressed}`);
         
         //send to interface
-        sendTheKeysFromLoggerToInterface(data);
+        sendTheKeysFromLoggerToInterface(JSON.stringify(
+          {
+            timestamp,
+            keyPressed,
+          }
+        ));
       });
 
       socket.on('close', (data) => {

