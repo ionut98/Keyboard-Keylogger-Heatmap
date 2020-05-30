@@ -26,11 +26,7 @@ def on_press(key):
     if hasattr(key, 'char') and key.char == '\x1a':
         ws.close()
         return False
-    if hasattr(key, 'char') and r"\x" in key.char:
-        ws.send('{"timestamp": "' + str(datetime.now()) +
-                '" , "keyPressed": "command" }')
-        return
-    if hasattr(key, 'char') and (key.char == "'" or key.char == "'"):
+    if hasattr(key, 'char') and (key.char == "'" or key.char == '"'):
         ws.send('{"timestamp": "' + str(datetime.now()) +
                 '" , "keyPressed": "quote" }')
         return

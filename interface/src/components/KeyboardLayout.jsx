@@ -1,20 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Context as AppContext } from '../context/index';
+import ImageMapper from 'react-image-mapper';
+
+import keyboard from './keyboard.png';
+import MAP from './map';
 
 const KeyboardLayout = () => {
 	const context = useContext(AppContext);
-	const { lastMessage } = context;
-	let lastKeyPressed = null;
+	const { keysStats } = context;
 
-	if (lastMessage) {
-		lastKeyPressed = JSON.parse(lastMessage.data);
-		if (lastKeyPressed.keyPressed[0] === "'") {
-			lastKeyPressed = lastKeyPressed.keyPressed[1];
-		} else {
-			lastKeyPressed = lastKeyPressed.keyPressed;
-		}
-	}
-	return <div>{lastKeyPressed !== null && lastKeyPressed}</div>;
+	const style = {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginTop: 100
+	};
+
+	return (
+		<div style={style}>
+			<ImageMapper src={keyboard} map={MAP(keysStats)} />
+		</div>
+	);
 };
 
 export default KeyboardLayout;
