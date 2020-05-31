@@ -14,11 +14,14 @@ const Provider = ({ children }) => {
 	useEffect(
 		() => {
 			if (lastMessage) {
-				const lastKeyPressed = JSON.parse(lastMessage.data);
-				if (lastKeyPressed.keyPressed[0] === "'") {
-					updateKeys(dispatch)(lastKeyPressed.keyPressed[1]);
-				} else {
-					updateKeys(dispatch)(lastKeyPressed.keyPressed);
+				const message = JSON.parse(lastMessage.data);
+				if (message.type === 'key') {
+					const lastKeyPressed = message.data.keyPressed;
+					if (lastKeyPressed[0] === "'") {
+						updateKeys(dispatch)(lastKeyPressed[1]);
+					} else {
+						updateKeys(dispatch)(lastKeyPressed);
+					}
 				}
 			}
 		},

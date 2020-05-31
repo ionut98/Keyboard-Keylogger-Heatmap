@@ -21,7 +21,7 @@ const heatMapColorforValue = (keyPressedValue) => {
 
 const squareKeys = [
 	{
-		name: 'esc',
+		name: 'Key.esc',
 		leftUpperCorner: {
 			x: 17,
 			y: 15
@@ -273,7 +273,7 @@ const squareKeys = [
 		}
 	},
 	{
-		name: "'",
+		name: 'quote',
 		leftUpperCorner: {
 			x: 652,
 			y: 203
@@ -351,28 +351,28 @@ const squareKeys = [
 	},
 	// arows
 	{
-		name: 'up',
+		name: 'Key.up',
 		leftUpperCorner: {
 			x: 895,
 			y: 257
 		}
 	},
 	{
-		name: 'left',
+		name: 'Key.left',
 		leftUpperCorner: {
 			x: 841,
 			y: 312
 		}
 	},
 	{
-		name: 'down',
+		name: 'Key.down',
 		leftUpperCorner: {
 			x: 895,
 			y: 312
 		}
 	},
 	{
-		name: 'right',
+		name: 'Key.right',
 		leftUpperCorner: {
 			x: 949,
 			y: 312
@@ -380,98 +380,84 @@ const squareKeys = [
 	},
 	// numpad,
 	{
-		name: 'numLock',
+		name: 'Key.num_lock',
 		leftUpperCorner: {
 			x: 1016,
 			y: 95
 		}
 	},
 	{
-		name: '/numpad',
-		leftUpperCorner: {
-			x: 1070,
-			y: 95
-		}
-	},
-	{
-		name: '*numpad',
+		name: '*',
 		leftUpperCorner: {
 			x: 1124,
 			y: 95
 		}
 	},
 	{
-		name: '-numpad',
-		leftUpperCorner: {
-			x: 1178,
-			y: 95
-		}
-	},
-	{
-		name: '7numpad',
+		name: '<103>',
 		leftUpperCorner: {
 			x: 1016,
 			y: 149
 		}
 	},
 	{
-		name: '8numpad',
+		name: '<104>',
 		leftUpperCorner: {
 			x: 1070,
 			y: 149
 		}
 	},
 	{
-		name: '9numpad',
+		name: '<105>',
 		leftUpperCorner: {
 			x: 1124,
 			y: 149
 		}
 	},
 	{
-		name: '4numpad',
+		name: '<100>',
 		leftUpperCorner: {
 			x: 1016,
 			y: 203
 		}
 	},
 	{
-		name: '5numpad',
+		name: '<101>',
 		leftUpperCorner: {
 			x: 1070,
 			y: 203
 		}
 	},
 	{
-		name: '6numpad',
+		name: '<102>',
 		leftUpperCorner: {
 			x: 1124,
 			y: 203
 		}
 	},
 	{
-		name: '1numpad',
+		name: '<97>',
 		leftUpperCorner: {
 			x: 1016,
 			y: 257
 		}
 	},
 	{
-		name: '2numpad',
+		name: '<98>',
 		leftUpperCorner: {
 			x: 1070,
 			y: 257
 		}
 	},
 	{
-		name: '3numpad',
+		name: '<99>',
 		leftUpperCorner: {
 			x: 1124,
 			y: 257
 		}
 	},
 	{
-		name: 'delnumpad',
+		name: '<110>',
 		leftUpperCorner: {
 			x: 1124,
 			y: 311
@@ -481,19 +467,19 @@ const squareKeys = [
 
 const rectKeys = [
 	{
-		name: 'tab',
+		name: 'Key.tab',
 		coords: [ 17, 149, 17, 189, 84, 189, 84, 149 ]
 	},
 	{
-		name: 'capslock',
+		name: 'Key.caps_lock',
 		coords: [ 17, 203, 17, 243, 98, 243, 98, 203 ]
 	},
 	{
-		name: 'Lshift',
+		name: 'Key.shift',
 		coords: [ 17, 257, 17, 297, 125, 297, 125, 257 ]
 	},
 	{
-		name: 'backspace',
+		name: 'Key.backspace',
 		coords: [ 719, 95, 719, 135, 814, 135, 814, 95 ]
 	},
 	{
@@ -501,49 +487,44 @@ const rectKeys = [
 		coords: [ 745, 149, 745, 190, 814, 190, 814, 149 ]
 	},
 	{
-		name: 'enter',
+		name: 'Key.enter',
 		coords: [ 706, 203, 706, 244, 814, 244, 814, 203 ]
 	},
 	{
-		name: 'Rshift',
+		name: 'Key.shift_r',
 		coords: [ 679, 257, 679, 297, 814, 297, 814, 257 ]
 	},
 	{
-		name: 'Lctrl',
+		name: 'Key.ctrl_l',
 		coords: [ 17, 311, 17, 351, 71, 351, 71, 311 ]
 	},
 	{
-		name: 'Lalt',
+		name: 'Key.alt_l',
 		coords: [ 150, 311, 150, 351, 206, 351, 206, 311 ]
 	},
 	{
-		name: 'Ralt',
+		name: 'Key.alt_r',
 		coords: [ 556, 311, 556, 351, 611, 351, 611, 311 ]
 	},
 	{
-		name: 'Rctrl',
+		name: 'Key.ctrl_r',
 		coords: [ 760, 311, 760, 351, 813, 351, 813, 311 ]
 	},
 	{
-		name: 'space',
+		name: 'Key.space',
 		coords: [ 220, 311, 220, 351, 544, 351, 544, 311 ]
 	},
 	{
-		name: '0numpad',
+		name: '<96>',
 		coords: [ 1016, 311, 1016, 351, 1110, 351, 1110, 311 ]
 	},
 	{
-		name: '+numpad',
+		name: '+',
 		coords: [ 1178, 149, 1178, 245, 1218, 245, 1218, 149 ]
-	},
-	{
-		name: 'enternumpad',
-		coords: [ 1178, 257, 1178, 351, 1218, 351, 1218, 257 ]
 	}
 ];
 
 const MAP = (keysStats) => {
-	console.log(keysStats, '<=== IN Map');
 	return {
 		name: 'keyboard-map',
 		areas: [

